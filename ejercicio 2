@@ -1,0 +1,25 @@
+/*
+ejercicio 2:
+utilizando una lista capturar las 5 calificaciones de un alumno e imprimier el promedio
+Bautista De Jesús Héctor Eduardo
+*/
+
+#include<stdio.h>
+
+void main (){
+    int list[5];
+    int i ,calif = 0;
+    float prom;
+    
+    for(i=0; i<5; i++){
+        printf("Intoducir la calificacion: ");
+        scanf("%d", &list[i]);
+    }
+    
+    for(i=0; i<5; i++){
+        calif = calif + list[i];
+    }
+    
+    prom = calif/5;
+    printf("El promedio es: %f\n", prom);
+}
