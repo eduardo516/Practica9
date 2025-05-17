@@ -1,0 +1,104 @@
+/*
+Practica 9
+HEBJ
+Ejercicio 3 
+Calculadora con funciones
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+// Declaración de funciones
+float sumar(float x, float y);
+float restar(float x, float y);
+float multiplicar(float x, float y);
+float dividir(float x, float y);
+float potenciar(float base, float exponente);
+float raiz_cuadrada(float x);
+void mostrar_menu();
+
+int main() {
+    float a, b, res = 0;
+    int op;
+
+    mostrar_menu();
+    scanf("%d", &op);
+
+    if(op >= 1 && op <= 5){
+        printf("Ingresa un número: ");
+        scanf("%f", &a);
+        printf("Ingresa otro número: ");
+        scanf("%f", &b);
+
+        switch(op){
+            case 1: res = sumar(a, b); break;
+            case 2: res = restar(a, b); break;
+            case 3: res = multiplicar(a, b); break;
+            case 4: res = dividir(a, b); break;
+            case 5: res = potenciar(a, b); break;
+        }
+
+        printf("Resultado: %.2f\n", res);
+    }
+    else if(op == 6){
+        printf("Ingresa un número: ");
+        scanf("%f", &a);
+        res = raiz_cuadrada(a);
+        printf("Resultado: %.2f\n", res);
+    }
+    else if(op == 0){
+        printf("Fin del programa.\n");
+    }
+    else{
+        printf("Opción no válida.\n");
+    }
+
+    return 0;
+}
+
+// Definición de funciones
+float sumar(float x, float y) {
+    return x + y;
+}
+
+float restar(float x, float y) {
+    return x - y;
+}
+
+float multiplicar(float x, float y) {
+    return x * y;
+}
+
+float dividir(float x, float y) {
+    if(y != 0)
+        return x / y;
+    else {
+        printf("Error: división entre cero.\n");
+        return 0;
+    }
+}
+
+float potenciar(float base, float exponente) {
+    return pow(base, exponente);
+}
+
+float raiz_cuadrada(float x) {
+    if(x >= 0)
+        return sqrt(x);
+    else {
+        printf("Error: raíz cuadrada de número negativo.\n");
+        return 0;
+    }
+}
+
+void mostrar_menu() {
+    printf("Seleccione un número:\n");
+    printf("1: Suma\n");
+    printf("2: Resta\n");
+    printf("3: Multiplicación\n");
+    printf("4: División\n");
+    printf("5: Potenciación\n");
+    printf("6: Raíz Cuadrada\n");
+    printf("0: Fin\n");
+    printf("Opción: ");
+}
